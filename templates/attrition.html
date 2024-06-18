@@ -1,0 +1,146 @@
+{% extends "userlayout.html" %}
+{% block content %}
+
+<div class="w3-card-4 w3-margin">
+
+    <header class="w3-container w3-blue">
+      <h1>Fill the Details</h1>
+    </header>
+
+
+    <form class="w3-container w3-margin" action="" method="post" enctype="multipart/form-data">
+      <label class="w3-text-teal"><b>Enter Your First Name</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="text" name='name' value="{{ name }}">
+      <br>
+
+      <label class="w3-text-teal"><b>Age</b></label><br>
+      <input class="w3-input w3-border w3-light-grey" type="text" name='age' value="{{ age }}">
+      <br>
+
+      <label class="w3-text-teal"><b>Business Travel Frequency</b></label><br>
+      <input class="w3-radio" type="radio" name="travel" value="0"> Travel_Frequently<br>
+      <input class="w3-radio" type="radio" name="travel" value="1"> Travel_Rarely<br>
+      <br>
+
+      <label class="w3-text-teal"><b>Distance from Home</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="text" name='distance' value="{{ distance }}">
+      <br>
+
+      <label class="w3-text-teal"><b>Employee Education Level</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="text" name='education' value="{{ education }}">
+      <br>
+
+      <label class="w3-text-teal"><b>Employee ID</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="text" name='id' value="{{ id }}">
+      <br>
+
+      <label class="w3-text-teal"><b>Gender</b></label><br>
+      <input class="w3-radio" type="radio" name="gender" value="0"> Female<br>
+      <input class="w3-radio" type="radio" name="gender" value="1"> Male<br>
+      <br>
+
+      <label class="w3-text-teal"><b>Employee Job Involvement</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="text" name='job' value="{{ job }}">
+      <br>
+
+      <label class="w3-text-teal"><b>Employee Job Level</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="text" name='joblevel' value="{{ joblevel }}">
+      <br> 
+
+      <label class="w3-text-teal"><b>Employee Job Satisfaction</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="text" name='jobsatisfaction' value="{{ jobsatisfaction }}">
+      <br> 
+
+      <label class="w3-text-teal"><b>Marital Status</b></label><br>
+      <input class="w3-radio" type="radio" name="marital" value="0"> No<br>
+      <input class="w3-radio" type="radio" name="marital" value="1"> Yes<br>
+      <br>
+
+      <label class="w3-text-teal"><b>Monthly Income</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="text" name='income' value="{{ income }}">
+      <br>
+
+      <label class="w3-text-teal"><b>No of Companies Worked</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="text" name='companies' value="{{ companies }}">
+      <br>
+
+      <label class="w3-text-teal"><b>Overtime</b></label><br>
+      <input class="w3-radio" type="radio" name="overtime" value="0"> No<br>
+      <input class="w3-radio" type="radio" name="overtime" value="1"> Yes<br>
+      <br>
+
+      <label class="w3-text-teal"><b>Last Salary Hike Percentage</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="text" name='hike' value="{{ hike }}">
+      <br>
+
+      <label class="w3-text-teal"><b>Performance Rating</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="text" name='performance' value="{{ performance }}">
+      <br>
+
+      <label class="w3-text-teal"><b>Relationship Satisfaction</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="text" name='relationship' value="{{ relationship }}">
+      <br>
+
+      <label class="w3-text-teal"><b>Stock Option Level</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="text" name='stock' value="{{ stock }}">
+      <br>
+
+      <label class="w3-text-teal"><b>Total Work Experience</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="text" name='experience' value="{{ experience }}">
+      <br>
+
+      <label class="w3-text-teal"><b>Training Time</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="text" name='training' value="{{ training }}">
+      <br>
+
+      <label class="w3-text-teal"><b>Employee Life Balance</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="text" name='life' value="{{ life }}">
+      <br>
+
+      <label class="w3-text-teal"><b>Experience at this Company</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="text" name='companyex' value="{{ companyex }}">
+      <br>
+
+      <label class="w3-text-teal"><b>Experience in Current Role</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="text" name='roleex' value="{{ roleex }}">
+      <br>
+
+      <label class="w3-text-teal"><b>Years since last Promotion</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="text" name='promotion' value="{{ promotion }}">
+      <br>
+
+      <label class="w3-text-teal"><b>Years with Current Manager</b></label>
+      <input class="w3-input w3-border w3-light-grey" type="text" name='manager' value="{{ manager }}">
+      <br>
+      <input class="w3-btn w3-blue-grey" name="sub" type="submit" value="Submit"/>
+      <br><br>     
+    </form>
+
+    <br>
+    <footer class="w3-container w3-blue">
+      <h5></h5>
+    </footer>
+    
+    </div>
+
+    <div class="w3-card-4 w3-margin">
+
+      <header class="w3-container w3-blue">
+        <h1>Attrition Prediction</h1>
+      </header>
+      
+      <div class="w3-container">
+        <p>
+         {{ pred }}
+      </p>
+      </div>
+      
+      <footer class="w3-container w3-blue">
+        <h5></h5>
+      </footer>
+      
+      </div> 
+
+  
+
+    {% endblock %}

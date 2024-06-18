@@ -1,0 +1,280 @@
+{% extends "userlayout.html" %}
+{% block content %}
+
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+    .container {
+        width: 50%;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        text-align: center;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input[type="text"],
+    input[type="number"],
+    select {
+        width: calc(100% - 22px); /* Adjusted width */
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    button[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: block;
+        margin: 0 auto;
+    }
+    button[type="submit"]:hover {
+        background-color: #45a049;
+    }
+    .error-message {
+        color: red;
+        font-style: italic;
+    }
+
+    .form-box { 
+    background-color: #fff; 
+    box-shadow: 0 0 10px rgba(36, 67, 40, 0.8); 
+    padding: 15px; 
+    border-radius: 8px; 
+    width: 500px; 
+    } 
+</style>
+
+    <h1>Employee Data Form</h1>
+    <div class="form-box">
+        <form id="myForm" action="/submit" method="post">
+            <div class="form-group">
+                <label for="EmpID">Employee ID:</label>
+                <input type="text" id="EmpID" name="EmpID" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Age">Age:</label>
+                <input type="number" id="Age" name="Age" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Gender">Gender:</label>
+                <select name="Gender" id="Gender" required>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="MaritalStatus">Marital Status:</label>
+                <select id="MaritalStatus" name="MaritalStatus" required>
+                    <option value="1">Single</option>
+                    <option value="2">Married</option>
+                    <option value="3">Divorced</option>
+                </select><br><br>
+            </div>
+
+            <div class="form-group">
+                <label for="BusinessTravelFrequency">Business Travel Frequency:</label>
+                <select id="BusinessTravelFrequency" name="BusinessTravelFrequency" required>
+                    <option value="1">Travel_Rarely</option>
+                    <option value="2">Travel_Frequently</option>
+                    <option value="3">Non-Travel</option>
+                </select><br><br>
+            </div>
+
+            <div class="form-group">
+                <label for="DistanceFromHome">Distance From Home (in Kms):</label>
+                <input type="number" id="DistanceFromHome" name="DistanceFromHome" value="0" required><br><br>
+            </div>
+            
+
+            <div class="form-group">
+                <label for="EmpEducationLevel">Employee Education Level:</label>
+                <select id="EmpEducationLevel" name="EmpEducationLevel" required>
+                    <option value="1">Below College</option>
+                    <option value="2">College</option>
+                    <option value="3">Bachelor</option>
+                    <option value="4">Master</option>
+                    <option value="5">Doctor</option>
+                </select><br><br>
+            </div>
+            
+            <div class="form-group"> 
+                <label for="EmpEnvironmentSatisfaction">Employee Environment Satisfaction:</label>
+                <select id="EmpEnvironmentSatisfaction" name="EmpEnvironmentSatisfaction" required>
+                    <option value="1">Low</option>
+                    <option value="2">Medium</option>
+                    <option value="3">High</option>
+                    <option value="4">Very High</option>
+                </select><br><br>
+            </div>
+            
+            <div class="form-group">
+                <label for="EmpHourlyRate">Employee Hourly Rate:</label>
+                <input type="number" id="EmpHourlyRate" name="EmpHourlyRate" required><br><br>
+            </div>
+
+            <div class="form-group">
+                <label for="EmpJobInvolvement">Employee Job Involvement:</label>
+                <select id="EmpJobInvolvement" name="EmpJobInvolvement" required>
+                    <option value="1">Low</option>
+                    <option value="2">Medium</option>
+                    <option value="3">High</option>
+                    <option value="4">Very High</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="EmpJobLevel">Employee Job Level:</label>
+                <select id="EmpJobLevel" name="EmpJobLevel" required>
+                    <option value="1">Trainee</option>
+                    <option value="2">Junior Employee</option>
+                    <option value="3">Senior Employee</option>
+                    <option value="4">Manager</option>
+                    <option value="5">Upper Management</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="EmpJobSatisfaction">Employee Job Satisfaction:</label>
+                <select id="EmpJobSatisfaction" name="EmpJobSatisfaction" required>
+                    <option value="1">Low</option>
+                    <option value="2">Medium</option>
+                    <option value="3">High</option>
+                    <option value="4">Very High</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="NumCompaniesWorked">Number of Companies Worked:</label>
+                <select id="NumCompaniesWorked" name="NumCompaniesWorked" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7+</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="OverTime">OverTime:</label>
+                <select id="OverTime" name="OverTime" required>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="EmpLastSalaryHikePercent">Employee Last Salary Hike Percent (between 11 to 25):</label>
+                <input type="number" id="EmpLastSalaryHikePercent" name="EmpLastSalaryHikePercent" required>
+            </div>
+
+            <div class="form-group">
+                <label for="EmpRelationshipSatisfaction">Employee Relationship Satisfaction:</label>
+                <select id="EmpRelationshipSatisfaction" name="EmpRelationshipSatisfaction" required>
+                    <option value="1">Low</option>
+                    <option value="2">Medium</option>
+                    <option value="3">High</option>
+                    <option value="4">Very High</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="TotalWorkExperienceInYears">Total Work Experience In Years:</label>
+                <input type="number" id="TotalWorkExperienceInYears" name="TotalWorkExperienceInYears" required>
+            </div>
+
+            <div class="form-group">
+                <label for="TrainingTimesLastYear">Training Times Last Year:</label>
+                <select id="TrainingTimesLastYear" name="TrainingTimesLastYear" required>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4+</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="EmpWorkLifeBalance">Employee Work-Life Balance:</label>
+                <select id="EmpWorkLifeBalance" name="EmpWorkLifeBalance" required>
+                    <option value="1">Bad</option>
+                    <option value="2">Good</option>
+                    <option value="3">Better</option>
+                    <option value="4">Best</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="ExperienceYearsAtThisCompany">Experience Years At This Company:</label>
+                <input type="number" id="ExperienceYearsAtThisCompany" name="ExperienceYearsAtThisCompany" required>
+            </div>
+
+            <div class="form-group">
+                <label for="ExperienceYearsInCurrentRole">Experience Years In Current Role:</label>
+                <input type="number" id="ExperienceYearsInCurrentRole" name="ExperienceYearsInCurrentRole" required>
+            </div>
+
+            <div class="form-group">
+                <label for="YearsWithCurrManager">Years With Current Manager:</label>
+                <input type="number" id="YearsWithCurrManager" name="YearsWithCurrManager" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Attrition">Attrition:</label>
+                <select id="Attrition" name="Attrition" required>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="PerformanceRating">Performance Rating:</label>
+                <select id="PerformanceRating" name="PerformanceRating" required>
+                    <option value="1">Low</option>
+                    <option value="2">Good</option>
+                    <option value="3">Excellent</option>
+                    <option value="4">Outstanding</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="EmpDepartment">Employee Department:</label>
+                <select id="EmpDepartment" name="EmpDepartment" required>
+                    <option value="1">Data Science</option>
+                    <option value="2">Development</option>
+                    <option value="3">Finance</option>
+                    <option value="4">HR</option>
+                    <option value="5">Research & Development</option>
+                    <option value="6">Sales</option>
+                </select>
+            </div>
+        
+            <button type="submit">Submit</button>
+        </form>
+    </div>    
+    <script src="../static/js/script.js"></script>
+{% endblock %}

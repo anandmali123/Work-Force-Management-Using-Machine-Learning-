@@ -1,0 +1,128 @@
+{% extends "userlayout.html" %}
+{% block content %}
+
+    <!-- <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    </head>
+    <body>
+        <h2>Submitted Data</h2>
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% else %}
+            <table>
+                <thead>
+                    <tr>
+                        {% for column in column_names %}
+                            <th>{{ column }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in rows %}
+                        <tr>
+                            {% for item in row %}
+                                <td>{{ item }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %} -->
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            table, th, td {
+                border: 1px solid black;
+            }
+            th, td {
+                padding: 15px;
+                text-align: left;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+            .table-container {
+                overflow: auto;
+                max-height: 400px; /* Adjust as needed */
+                max-width: 100%;
+            }
+        </style>
+    
+    
+        <h2>Submitted Data</h2>
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}
+    
+        <h3>Search by EmpID</h3>
+        <form method="POST" action="/show_data">
+            <label for="emp_id">EmpID:</label>
+            <input type="text" id="emp_id" name="emp_id" required>
+            <input type="submit" value="Search">
+        </form>
+    
+        {% if search_result %}
+            <h3>Search Result</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            {% for column in column_names %}
+                                <th>{{ column }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            {% for item in search_result %}
+                                <td>{{ item }}</td>
+                            {% endfor %}
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        {% endif %}
+    
+        <h3>Latest 5 Additions</h3>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        {% for column in column_names %}
+                            <th>{{ column }}</th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in latest_rows %}
+                        <tr>
+                            {% for item in row %}
+                                <td>{{ item }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+{% endblock %}
